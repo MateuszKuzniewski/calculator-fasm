@@ -54,6 +54,15 @@ _start:
     cmp r13, 4
     jge .rect_loop_col_exit
     
+    mov rax, r12
+    imul rax, 4
+    add rax, r13
+
+    mov rsi, _text_array
+    movzx rbx, byte [rsi + rax]
+    mov byte [_text_tmp], bl
+    mov byte [_text_tmp + 1], 0
+
     ; x
     mov rax, r13
     imul rax, _button_size + _button_gap
@@ -71,11 +80,6 @@ _start:
     mov r8, _color_white
     call DrawRectangle
 
-    mov rsi, _text_array
-    movzx rax, byte [rsi]
-    mov byte [_text_tmp], al
-    mov byte [_text_tmp + 1], 0
-    
     mov rdi, _text_tmp          ; text
     mov rax, r13
     imul rax, _button_size + _button_gap 
