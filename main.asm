@@ -9,7 +9,7 @@ _color_black equ 0xFF000000
 _button_size equ 90
 _button_gap equ 15
 _title db "Fasm Calculator", 10, 0
-_text_array db '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '='
+_text_array db '.', '0', '/', '=', '1', '2', '3', '+', '4', '5', '6', '-', '7', '8', '9', '*' 
 
 section '.data' writeable
 _text_tmp db 0, 0
